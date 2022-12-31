@@ -1575,8 +1575,7 @@ fullscreen(const Arg *arg)
 void
 runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks&");
-	/* system("killall -q fbxkb ; sleep 2s && fbxkb&"); */
-	/* system("cd ~/.local/share/dwm; ./autostart.sh &"); */
+	system("cd ~/.local/share/dwm; ./autostart.sh &");
 	/* system("cd ~/.config/dwm; ./autostart_blocking.sh"); */
 }
 
