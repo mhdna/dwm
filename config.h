@@ -33,10 +33,11 @@ typedef struct {
   const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "100x30", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "spdic", "-g", "80x30","-e", "sdcv",  NULL };
 static Sp scratchpads[] = {
   /* name          cmd  */
   {"spterm",      spcmd1},
+  {"spdic",      spcmd2},
 };
 
 
@@ -63,6 +64,7 @@ static const Rule rules[] = {
   {"Gimp", NULL, NULL, 1 << 5, 0, -1},
   {"TelegramDesktop", NULL, NULL, 1 << 7, 0, -1},
   { NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
+  { NULL,		  "spdic",		NULL,		SPTAG(1),		1,			 -1 },
 };
 
 /* layout(s) */
@@ -105,6 +107,7 @@ static const Key keys[] = {
   {MODKEY, XK_p, spawn , {.v = (const char *[]){"dmenu_run", NULL}}},
   {MODKEY, XK_Return, spawn, {.v = termcmd}},
   { MODKEY,                       XK_apostrophe,  togglescratch,  {.ui = 0 } },
+  { MODKEY,                       XK_slash,       togglescratch,  {.ui = 1 } },
   {MODKEY, XK_b, togglebar, {0}},
   {MODKEY, XK_j, focusstack, {.i = +1}},
   {MODKEY, XK_k, focusstack, {.i = -1}},
