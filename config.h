@@ -19,7 +19,7 @@ static const char normbgcolor[]           = "#222222";
 static const char normbordercolor[]       = "#000000";
 static const char selfgcolor[]            = "#eeeeee";
 static const char selbgcolor[]            = "#005577";
-static const char selbordercolor[]        = "#005577";
+static const char selbordercolor[]        = "#60fe60";
 static const char *colors[][3] = {
   /*               fg           bg           border   */
   [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -32,8 +32,8 @@ typedef struct {
   const char *name;
   const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "100x30", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "spdic", "-g", "80x30","-e", "sdcv",  NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "80x30", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "spdic", "-g", "80x30","-e", "sdcv", "--color", NULL };
 static Sp scratchpads[] = {
   /* name          cmd  */
   {"spterm",      spcmd1},
@@ -123,7 +123,7 @@ static const Key keys[] = {
   {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
   {MODKEY, XK_f, setlayout, {.v = &layouts[1]}},
   {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
-  { MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
+  { MODKEY|ShiftMask,             XK_f,      togglefullscr,     {0} },
   // {MODKEY | ShiftMask, XK_f, setlayout, {0}},
   {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
   {MODKEY|ShiftMask, XK_0, view, {.ui = ~0}},
